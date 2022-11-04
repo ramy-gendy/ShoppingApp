@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as React from "react";
 import './App.css';
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container min-w-full h-full">
+      <Navbar />
+      {/* Routes nest inside one another. Nested route paths build upon
+            parent route paths, and nested route elements render inside
+            parent route elements. See the note about <Outlet> below. */}
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+function NoMatch() {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
+}
