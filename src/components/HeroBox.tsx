@@ -1,6 +1,6 @@
 export default function HeroBox() {
     return (
-    <div className="container bg-hero-pattern min-w-full h-60">
+    <div className="container bg-hero-pattern min-w-full h-60 mb-20">
         <div id="hero" className="grid grid-rows-2 content-end">
           <div
             id="heroTitle"
