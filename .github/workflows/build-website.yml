@@ -27,6 +27,8 @@ jobs:
           node-version: 14
           cache: 'npm'
 
+      - name: install package
+        run: npm ci
       # Runs a single command using the runners shell
       - name: build website
         run: npm run build
