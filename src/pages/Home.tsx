@@ -160,7 +160,7 @@ export default function Home() {
       >
         {currentProducts
           .filter(
-            (product) => product.title.includes(textFilter) || textFilter === ""
+            (product) => product.title.toLowerCase().includes(textFilter.toLowerCase()) || textFilter === ""
           )
           .map((product) => (
             <ProductBox product={product} key={product.id} />
