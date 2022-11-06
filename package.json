@@ -1,6 +1,7 @@
 {
   "name": "shopping-app",
   "version": "0.1.0",
+  "homepage": "https://ramy-gendy.github.io/ShoppingApp/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-common-types": "^6.2.0",
