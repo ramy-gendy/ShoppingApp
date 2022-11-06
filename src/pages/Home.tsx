@@ -11,7 +11,7 @@ export default function Home() {
   const [categories, setCategories] = useState<any[]>([]);
   const [filteredCategories, setFilteredCategories] = useState<string[]>([]);
   const [textFilter, setTextFilter] = useState<string>("");
-  const [selectedSort, _] = useState<string>("");
+  const [selectedSort] = useState<string>("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
