@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import ProductBox from "../components/ProductBox";
 import Product from "../interfaces/Product";
 import HeroBox from "../components/HeroBox";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SortByComponent from "../components/SortBy";
 import orderBy from "lodash/orderBy";
 
@@ -13,7 +11,7 @@ export default function Home() {
   const [categories, setCategories] = useState<any[]>([]);
   const [filteredCategories, setFilteredCategories] = useState<string[]>([]);
   const [textFilter, setTextFilter] = useState<string>("");
-  const [selectedSort, setSelectedSort] = useState<string>("");
+  const [selectedSort, _] = useState<string>("");
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
