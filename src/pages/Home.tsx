@@ -83,18 +83,15 @@ export default function Home() {
     <>
       <HeroBox />
       <div className="grid grid-cols-2"></div>
-      <div className="grid grid-cols-3 mb-5">
-        <div id="searchInput" className="place-self-center h-1/6">
-          <textarea
+      <div className="grid md:grid-cols-3 mb-5">
+        <div id="searchInput" className="place-self-center">
+          <input
+            type="text"
             name="searchInput"
             maxLength={100}
             placeholder="What do you need?"
-            className=""
+            className="border-4 h-32 w-52"
             onChange={(e) => setTextFilter(e.target.value.trim())}
-          />
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            className="border-2 bg-blue-400"
           />
         </div>
         <div id="sortByFilters" className="place-self-center mb-4">
