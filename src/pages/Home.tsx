@@ -81,17 +81,18 @@ export default function Home() {
     <>
       <HeroBox />
       <div className="grid grid-cols-2"></div>
-      <div className="grid md:grid-cols-3 mb-5">
-        <div id="searchInput" className="place-self-center">
-          <input
-            type="text"
-            name="searchInput"
-            maxLength={100}
-            placeholder="What do you need?"
-            className="border-4 h-32 w-52"
-            onChange={(e) => setTextFilter(e.target.value.trim())}
-          />
-        </div>
+      <div id="searchInput" className="grid mb-10">
+        {/* <label className="h-9/12 place-self-center text-lg mb-3">Search for any item</label> */}
+        <input
+          type="text"
+          name="searchInput"
+          maxLength={100}
+          placeholder="I am looking for..."
+          className="border-4 rounded-full p-4 h-9/12 w-6/12 place-self-center text-lg"
+          onChange={(e) => setTextFilter(e.target.value.trim())}
+        />
+      </div>
+      <div className="grid md:grid-cols-2 mb-5">
         <div id="sortByFilters" className="place-self-center mb-4">
           <div className="text-3xl">Sort By</div>
           <div className={`grid grid-rows-4`}>
@@ -124,12 +125,18 @@ export default function Home() {
               onChange={sortByValue}
             />
             <div className="mt-4">
-              <input type="radio" value="reset" name="sortBy" onChange={resetSort} className="hover:text-orange-400 active:text-orange-400 mr-4"/>
+              <input
+                type="radio"
+                value="reset"
+                name="sortBy"
+                onChange={resetSort}
+                className="hover:text-orange-400 active:text-orange-400 mr-4"
+              />
               <label>Reset</label>
             </div>
           </div>
         </div>
-        <div id="categories" className="place-self-center mb-4">
+        <div id="categories" className="place-self-center mb-5">
           <div className="text-3xl">Product Categories</div>
           <div className={`grid grid-rows-${categories.length}`}>
             {categories.map((category) => (
@@ -141,7 +148,7 @@ export default function Home() {
                   className="hover:text-orange-400 active:text-orange-400 mr-4"
                   onClick={(e) => handleFilteredCategoriesClick(e)}
                 ></input>
-                <label>{category}</label>
+                <label>{category.toString().charAt(0).toUpperCase() + category.substring(1)}</label>
               </div>
             ))}
           </div>
@@ -149,7 +156,7 @@ export default function Home() {
       </div>
       <div
         id="productsView"
-        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4`}
+        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-10`}
       >
         {currentProducts
           .filter(

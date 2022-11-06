@@ -6,18 +6,18 @@ interface Props {
 
 export default function ProductBox({product}: Props) {
   return (
-    <div className="flex flex-col m-2 border-2 rounded-xl">
+    <div className="flex flex-col m-2 border-2 rounded-xl p-5">
       <img
         src={product.image}
         alt={product.title}
-        className="w-52 h-52 self-center mt-4 ml-4"
+        className="w-52 h-52 self-center mt-4"
       ></img>
-      <div className="text-gray-400 mb-4 mt-4 ml-4 text-lg capitalize">
+      <div className="text-gray-400 mb-4 mt-4 ml-4 text-lg capitalize self-center">
         {" "}
         {product.category}{" "}
       </div>
-      <div className="mb-4 mt-4 ml-4 text-xl"> {product.title} </div>
-      <div className="mb-4 mt-4 ml-4 text-xl"> ${product.price} </div>
+      <div className="mb-4 mt-4 ml-4 text-xl self-center"> {product.title} </div>
+      <div className="mb-4 mt-4 ml-4 text-xl self-center"> ${product.price} </div>
     </div>
   );
 }
